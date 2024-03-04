@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
+import java.util.List;
+
 @Getter
 @Setter
 @ToString
@@ -22,4 +24,11 @@ public class Coordinator extends Employee {
             generator = "coordinator_id_sequence"
     )
     private Long id;
+    @OneToMany(
+            mappedBy = "supervisedBy"
+    )
+    private List<Trainee> trainees;
+    @ManyToOne
+    @JoinColumn
+    private Director supervisedBy;
 }
