@@ -15,11 +15,11 @@ import lombok.experimental.SuperBuilder;
 public class Director extends Employee {
     @Id
     @SequenceGenerator(
-            name = "employee_id_sequence"
+            name = "director_id_sequence"
     )
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
-            generator = "employee_id_sequence"
+            generator = "director_id_sequence"
     )
     private Long id;
 }
