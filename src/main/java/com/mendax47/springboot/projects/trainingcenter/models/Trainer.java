@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
+import java.util.List;
+
 @Getter
 @Setter
 @ToString
@@ -22,4 +24,14 @@ public class Trainer extends Employee {
             generator = "trainer_id_sequence"
     )
     private Long id;
+    @ManyToMany
+    @JoinTable(
+            joinColumns = {
+                    @JoinColumn(name = "trainer_id")
+            },
+            inverseJoinColumns = {
+                    @JoinColumn(name = "course_id")
+            }
+    )
+    private List<Course> courses;
 }

@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
+import java.util.List;
+
 @Getter
 @Setter
 @ToString
@@ -30,4 +32,8 @@ public class Course {
             nullable = false
     )
     private int duration;
+    @ManyToMany(
+            mappedBy = "courses"
+    )
+    private List<Trainer> trainers;
 }
