@@ -34,4 +34,7 @@ public class Trainer extends Employee {
             }
     )
     private List<Course> courses;
+    @ManyToOne
+    @JoinColumn
+    private Trainee supervisedBy;
 }
