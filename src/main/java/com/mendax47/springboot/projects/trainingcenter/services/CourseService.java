@@ -8,4 +8,5 @@ import org.springframework.stereotype.Service;
 @AllArgsConstructor
 public class CourseService {
     private CourseRepository courseRepository;
+
 }
