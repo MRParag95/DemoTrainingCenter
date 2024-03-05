@@ -28,10 +28,6 @@ public class DirectorService {
     public Director updateDirector(Long id, Director director) throws RuntimeException {
         Director foundDirector = this.getDirectorById(id);
 
-        if (Objects.isNull(foundDirector)) {
-            throw new RuntimeException("Director not found.");
-        }
-
         foundDirector.setFirstName(director.getFirstName());
         foundDirector.setLastName(director.getLastName());
         foundDirector.setUsername(director.getUsername());
