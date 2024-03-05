@@ -1,5 +1,6 @@
 package com.mendax47.springboot.projects.trainingcenter.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
@@ -30,5 +31,6 @@ public class Coordinator extends Employee {
     private List<Trainee> trainees;
     @ManyToOne
     @JoinColumn
+    @JsonBackReference
     private Director supervisedBy;
 }
