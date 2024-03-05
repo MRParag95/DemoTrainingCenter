@@ -7,6 +7,5 @@ import org.springframework.stereotype.Service;
 @Service
 @AllArgsConstructor
 public class CourseService {
-    private CourseRepository courseRepository;
-
+    private final CourseRepository courseRepository;
 }
