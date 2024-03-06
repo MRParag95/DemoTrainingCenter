@@ -24,9 +24,4 @@ public class Director extends Employee {
             generator = "director_id_sequence"
     )
     private Long id;
-    @OneToMany(
-            mappedBy = "supervisedBy",
-            cascade = CascadeType.PERSIST
-    )
-    private List<Coordinator> coordinators;
 }

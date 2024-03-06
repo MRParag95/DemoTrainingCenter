@@ -33,7 +33,6 @@ public class TraineeService {
         foundTrainee.setUsername(trainee.getUsername());
         foundTrainee.setEmail(trainee.getEmail());
 
-        foundTrainee.setCourses(trainee.getCourses());
         foundTrainee.setSupervisedBy(trainee.getSupervisedBy());
 
         return this.traineeRepository.save(foundTrainee);

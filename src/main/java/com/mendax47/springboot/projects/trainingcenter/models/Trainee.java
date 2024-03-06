@@ -12,7 +12,6 @@ import java.util.List;
 @Getter
 @Setter
 @ToString
-@EqualsAndHashCode(callSuper = true)
 @AllArgsConstructor
 @NoArgsConstructor
 @SuperBuilder
@@ -27,18 +26,6 @@ public class Trainee extends Employee {
             generator = "trainee_id_sequence"
     )
     private Long id;
-    @ManyToMany(
-            cascade = CascadeType.PERSIST
-    )
-    @JoinTable(
-            joinColumns = {
-                    @JoinColumn(name = "trainee_id")
-            },
-            inverseJoinColumns = {
-                    @JoinColumn(name = "course_id")
-            }
-    )
-    private List<Course> courses;
     @ManyToOne(
             cascade = CascadeType.PERSIST
     )

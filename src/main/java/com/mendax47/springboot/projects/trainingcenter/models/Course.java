@@ -34,8 +34,15 @@ public class Course {
     )
     private int duration;
     @ManyToMany(
-            mappedBy = "courses",
             cascade = CascadeType.PERSIST
+    )
+    @JoinTable(
+            joinColumns = {
+                    @JoinColumn(name = "course_id")
+            },
+            inverseJoinColumns = {
+                    @JoinColumn(name = "trainee_id")
+            }
     )
     private List<Trainee> trainees;
 }

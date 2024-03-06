@@ -27,11 +27,6 @@ public class Coordinator extends Employee {
             generator = "coordinator_id_sequence"
     )
     private Long id;
-    @OneToMany(
-            mappedBy = "supervisedBy",
-            cascade = CascadeType.PERSIST
-    )
-    private List<Trainer> trainers;
     @ManyToOne(
             cascade = CascadeType.PERSIST
     )

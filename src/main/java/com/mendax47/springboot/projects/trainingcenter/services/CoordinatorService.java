@@ -32,7 +32,6 @@ public class CoordinatorService {
         foundCoordinator.setUsername(coordinator.getUsername());
         foundCoordinator.setEmail(coordinator.getEmail());
 
-        foundCoordinator.setTrainers(coordinator.getTrainers());
         foundCoordinator.setSupervisedBy(coordinator.getSupervisedBy());
 
         return this.coordinatorRepository.save(foundCoordinator);
