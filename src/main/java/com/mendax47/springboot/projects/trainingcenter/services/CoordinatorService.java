@@ -1,7 +1,6 @@
 package com.mendax47.springboot.projects.trainingcenter.services;
 
 import com.mendax47.springboot.projects.trainingcenter.models.Coordinator;
-import com.mendax47.springboot.projects.trainingcenter.models.Director;
 import com.mendax47.springboot.projects.trainingcenter.repository.CoordinatorRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -33,7 +32,7 @@ public class CoordinatorService {
         foundCoordinator.setUsername(coordinator.getUsername());
         foundCoordinator.setEmail(coordinator.getEmail());
 
-        foundCoordinator.setTrainees(coordinator.getTrainees());
+        foundCoordinator.setTrainers(coordinator.getTrainers());
         foundCoordinator.setSupervisedBy(coordinator.getSupervisedBy());
 
         return this.coordinatorRepository.save(foundCoordinator);

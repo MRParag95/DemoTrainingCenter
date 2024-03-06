@@ -26,15 +26,18 @@ public class Trainee extends Employee {
             generator = "trainer_id_sequence"
     )
     private Long id;
-
-    @OneToMany(
-            mappedBy = "supervisedBy",
-            cascade = CascadeType.ALL
+    @ManyToMany
+    @JoinTable(
+            joinColumns = {
+                    @JoinColumn(name = "trainer_id")
+            },
+            inverseJoinColumns = {
+                    @JoinColumn(name = "course_id")
+            }
     )
-    @JsonManagedReference
-    private List<Trainer> trainers;
+    private List<Course> courses;
     @ManyToOne
     @JoinColumn
     @JsonBackReference
-    private Coordinator supervisedBy;
+    private Trainer supervisedBy;
 }

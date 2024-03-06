@@ -1,5 +1,7 @@
 package com.mendax47.springboot.projects.trainingcenter.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
@@ -24,17 +26,14 @@ public class Trainer extends Employee {
             generator = "trainer_id_sequence"
     )
     private Long id;
-    @ManyToMany
-    @JoinTable(
-            joinColumns = {
-                    @JoinColumn(name = "trainer_id")
-            },
-            inverseJoinColumns = {
-                    @JoinColumn(name = "course_id")
-            }
+    @OneToMany(
+            mappedBy = "supervisedBy",
+            cascade = CascadeType.ALL
     )
-    private List<Course> courses;
+    @JsonManagedReference
+    private List<Trainee> trainees;
     @ManyToOne
     @JoinColumn
-    private Trainee supervisedBy;
+    @JsonBackReference
+    private Coordinator supervisedBy;
 }
