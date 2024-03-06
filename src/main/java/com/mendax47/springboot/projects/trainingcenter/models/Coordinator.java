@@ -32,7 +32,7 @@ public class Coordinator extends Employee {
     )
     @JsonManagedReference
     private List<Trainer> trainers;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn
     @JsonBackReference
     private Director supervisedBy;

@@ -1,5 +1,6 @@
 package com.mendax47.springboot.projects.trainingcenter.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
@@ -17,11 +18,11 @@ import java.util.List;
 public class Course {
     @Id
     @SequenceGenerator(
-            name = "trainer_id_sequence"
+            name = "course_id_sequence"
     )
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
-            generator = "trainer_id_sequence"
+            generator = "course_id_sequence"
     )
     private Long id;
     @Column(
@@ -33,7 +34,9 @@ public class Course {
     )
     private int duration;
     @ManyToMany(
-            mappedBy = "courses"
+            mappedBy = "courses",
+            cascade = CascadeType.ALL
     )
+    @JsonBackReference
     private List<Trainee> trainees;
 }

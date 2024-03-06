@@ -9,7 +9,7 @@ import java.util.List;
 
 @RestController
 @AllArgsConstructor
-@RequestMapping("api/v1/trainer")
+@RequestMapping("api/v1/trainers")
 public class TrainerController {
     private TrainerService trainerService;
 

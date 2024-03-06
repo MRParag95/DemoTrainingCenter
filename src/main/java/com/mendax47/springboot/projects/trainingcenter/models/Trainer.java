@@ -32,7 +32,9 @@ public class Trainer extends Employee {
     )
     @JsonManagedReference
     private List<Trainee> trainees;
-    @ManyToOne
+    @ManyToOne(
+            cascade = CascadeType.ALL
+    )
     @JoinColumn
     @JsonBackReference
     private Coordinator supervisedBy;

@@ -19,24 +19,29 @@ import java.util.List;
 public class Trainee extends Employee {
     @Id
     @SequenceGenerator(
-            name = "trainer_id_sequence"
+            name = "trainee_id_sequence"
     )
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
-            generator = "trainer_id_sequence"
+            generator = "trainee_id_sequence"
     )
     private Long id;
-    @ManyToMany
+    @ManyToMany(
+            cascade = CascadeType.ALL
+    )
     @JoinTable(
             joinColumns = {
-                    @JoinColumn(name = "trainer_id")
+                    @JoinColumn(name = "trainee_id")
             },
             inverseJoinColumns = {
                     @JoinColumn(name = "course_id")
             }
     )
+    @JsonManagedReference
     private List<Course> courses;
-    @ManyToOne
+    @ManyToOne(
+            cascade = CascadeType.ALL
+    )
     @JoinColumn
     @JsonBackReference
     private Trainer supervisedBy;
