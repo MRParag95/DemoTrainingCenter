@@ -26,7 +26,8 @@ public class Trainee extends Employee {
     private Long id;
 
     @OneToMany(
-            mappedBy = "supervisedBy"
+            mappedBy = "supervisedBy",
+            cascade = CascadeType.ALL
     )
     private List<Trainer> trainers;
     @ManyToOne

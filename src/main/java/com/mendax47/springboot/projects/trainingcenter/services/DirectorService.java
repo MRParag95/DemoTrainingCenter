@@ -32,6 +32,7 @@ public class DirectorService {
         foundDirector.setLastName(director.getLastName());
         foundDirector.setUsername(director.getUsername());
         foundDirector.setEmail(director.getEmail());
+
         foundDirector.setCoordinators(director.getCoordinators());
 
         return this.directorRepository.save(foundDirector);

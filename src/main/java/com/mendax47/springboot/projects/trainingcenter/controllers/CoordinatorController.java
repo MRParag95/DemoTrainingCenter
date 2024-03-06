@@ -36,7 +36,6 @@ public class CoordinatorController {
     @DeleteMapping("{id}")
     public String deleteCoordinator(@PathVariable Long id) {
         this.coordinatorService.deleteCoordinator(id);
-
         return "Director Deleted Successfully.";
     }
 }

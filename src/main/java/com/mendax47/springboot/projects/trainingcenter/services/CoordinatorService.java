@@ -32,6 +32,8 @@ public class CoordinatorService {
         foundCoordinator.setLastName(coordinator.getLastName());
         foundCoordinator.setUsername(coordinator.getUsername());
         foundCoordinator.setEmail(coordinator.getEmail());
+
+        foundCoordinator.setTrainees(coordinator.getTrainees());
         foundCoordinator.setSupervisedBy(coordinator.getSupervisedBy());
 
         return this.coordinatorRepository.save(foundCoordinator);
