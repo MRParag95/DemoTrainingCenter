@@ -26,7 +26,8 @@ public class Director extends Employee {
     )
     private Long id;
     @OneToMany(
-            mappedBy = "supervisedBy"
+            mappedBy = "supervisedBy",
+            cascade = CascadeType.ALL
     )
     @JsonManagedReference
     private List<Coordinator> coordinators;

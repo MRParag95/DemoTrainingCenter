@@ -29,7 +29,9 @@ public class Coordinator extends Employee {
             mappedBy = "supervisedBy"
     )
     private List<Trainee> trainees;
-    @ManyToOne
+    @ManyToOne(
+            cascade = CascadeType.ALL
+    )
     @JoinColumn
     @JsonBackReference
     private Director supervisedBy;
