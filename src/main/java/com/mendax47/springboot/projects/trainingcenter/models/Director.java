@@ -1,6 +1,5 @@
 package com.mendax47.springboot.projects.trainingcenter.models;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
@@ -27,8 +26,7 @@ public class Director extends Employee {
     private Long id;
     @OneToMany(
             mappedBy = "supervisedBy",
-            cascade = CascadeType.ALL
+            cascade = CascadeType.PERSIST
     )
-    @JsonManagedReference
     private List<Coordinator> coordinators;
 }

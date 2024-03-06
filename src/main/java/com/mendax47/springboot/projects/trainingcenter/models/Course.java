@@ -1,6 +1,6 @@
 package com.mendax47.springboot.projects.trainingcenter.models;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
@@ -35,8 +35,7 @@ public class Course {
     private int duration;
     @ManyToMany(
             mappedBy = "courses",
-            cascade = CascadeType.ALL
+            cascade = CascadeType.PERSIST
     )
-    @JsonBackReference
     private List<Trainee> trainees;
 }

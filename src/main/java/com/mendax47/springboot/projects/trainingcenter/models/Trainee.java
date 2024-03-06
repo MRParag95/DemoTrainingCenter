@@ -1,6 +1,7 @@
 package com.mendax47.springboot.projects.trainingcenter.models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
@@ -27,7 +28,7 @@ public class Trainee extends Employee {
     )
     private Long id;
     @ManyToMany(
-            cascade = CascadeType.ALL
+            cascade = CascadeType.PERSIST
     )
     @JoinTable(
             joinColumns = {
@@ -37,12 +38,10 @@ public class Trainee extends Employee {
                     @JoinColumn(name = "course_id")
             }
     )
-    @JsonManagedReference
     private List<Course> courses;
     @ManyToOne(
-            cascade = CascadeType.ALL
+            cascade = CascadeType.PERSIST
     )
     @JoinColumn
-    @JsonBackReference
     private Trainer supervisedBy;
 }
