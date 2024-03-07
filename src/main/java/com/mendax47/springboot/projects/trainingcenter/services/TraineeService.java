@@ -34,6 +34,7 @@ public class TraineeService {
         foundTrainee.setEmail(trainee.getEmail());
 
         foundTrainee.setSupervisedBy(trainee.getSupervisedBy());
+        foundTrainee.setCourses(trainee.getCourses());
 
         return this.traineeRepository.save(foundTrainee);
     }

@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
+import java.util.HashSet;
 import java.util.Set;
 
 @Getter
@@ -27,14 +28,6 @@ public class Trainee extends Employee {
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn
     private Trainer supervisedBy;
-    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
-    @JoinTable(
-            joinColumns = {
-                    @JoinColumn(name = "trainee_id")
-            },
-            inverseJoinColumns = {
-                    @JoinColumn(name = "course_id")
-            }
-    )
-    private Set<Course> courses;
+    @ManyToMany(mappedBy = "trainees", cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
+    private Set<Course> courses = new HashSet<>();
 }

@@ -33,6 +33,7 @@ public class TrainerService {
         foundTrainer.setEmail(trainer.getEmail());
 
         foundTrainer.setSupervisedBy(trainer.getSupervisedBy());
+        foundTrainer.setTrainees(trainer.getTrainees());
 
         return this.trainerRepository.save(foundTrainer);
     }
