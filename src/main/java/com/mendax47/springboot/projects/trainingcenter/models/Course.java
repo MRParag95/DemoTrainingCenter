@@ -1,11 +1,10 @@
 package com.mendax47.springboot.projects.trainingcenter.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
-import java.util.List;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -33,16 +32,6 @@ public class Course {
             nullable = false
     )
     private int duration;
-    @ManyToMany(
-            cascade = CascadeType.PERSIST
-    )
-    @JoinTable(
-            joinColumns = {
-                    @JoinColumn(name = "course_id")
-            },
-            inverseJoinColumns = {
-                    @JoinColumn(name = "trainee_id")
-            }
-    )
-    private List<Trainee> trainees;
+    @ManyToMany(mappedBy = "courses", cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
+    private Set<Trainee> trainees;
 }

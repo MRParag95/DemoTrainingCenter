@@ -1,13 +1,11 @@
 package com.mendax47.springboot.projects.trainingcenter.models;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -27,9 +25,9 @@ public class Coordinator extends Employee {
             generator = "coordinator_id_sequence"
     )
     private Long id;
-    @ManyToOne(
-            cascade = CascadeType.PERSIST
-    )
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn
     private Director supervisedBy;
+    @OneToMany(mappedBy = "supervisedBy", cascade = CascadeType.ALL)
+    private Set<Trainer> trainers = new HashSet<>();
 }

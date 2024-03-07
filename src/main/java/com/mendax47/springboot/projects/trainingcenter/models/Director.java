@@ -4,7 +4,8 @@ import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -24,4 +25,6 @@ public class Director extends Employee {
             generator = "director_id_sequence"
     )
     private Long id;
+    @OneToMany(mappedBy = "supervisedBy", cascade = CascadeType.ALL)
+    private Set<Coordinator> coordinators = new HashSet<>();
 }
