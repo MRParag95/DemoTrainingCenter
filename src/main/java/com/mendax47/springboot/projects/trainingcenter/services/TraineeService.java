@@ -1,12 +1,12 @@
 package com.mendax47.springboot.projects.trainingcenter.services;
 
-import com.mendax47.springboot.projects.trainingcenter.models.Coordinator;
+import com.mendax47.springboot.projects.trainingcenter.mappers.TraineeInfo;
 import com.mendax47.springboot.projects.trainingcenter.models.Trainee;
 import com.mendax47.springboot.projects.trainingcenter.repository.TraineeRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import java.util.Set;
 
 @Service
 @AllArgsConstructor
@@ -17,8 +17,8 @@ public class TraineeService {
         return this.traineeRepository.save(trainee);
     }
 
-    public List<Trainee> getAllTrainees() {
-        return this.traineeRepository.findAll();
+    public Set<TraineeInfo> getAllTrainees() {
+        return this.traineeRepository.findAllTrainees();
     }
 
     public Trainee getTraineeById(Long id) {

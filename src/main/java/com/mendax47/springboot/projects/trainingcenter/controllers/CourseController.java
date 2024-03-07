@@ -1,11 +1,12 @@
 package com.mendax47.springboot.projects.trainingcenter.controllers;
 
+import com.mendax47.springboot.projects.trainingcenter.mappers.CourseInfo;
 import com.mendax47.springboot.projects.trainingcenter.models.Course;
 import com.mendax47.springboot.projects.trainingcenter.services.CourseService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import java.util.Set;
 
 @RestController
 @AllArgsConstructor
@@ -19,7 +20,7 @@ public class CourseController {
     }
 
     @GetMapping
-    public List<Course> getAllCourses() {
+    public Set<CourseInfo> getAllCourses() {
         return this.courseService.getAllCourses();
     }
 

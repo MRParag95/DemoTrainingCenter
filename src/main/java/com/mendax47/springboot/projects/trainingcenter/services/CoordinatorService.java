@@ -1,11 +1,12 @@
 package com.mendax47.springboot.projects.trainingcenter.services;
 
+import com.mendax47.springboot.projects.trainingcenter.mappers.CoordinatorInfo;
 import com.mendax47.springboot.projects.trainingcenter.models.Coordinator;
 import com.mendax47.springboot.projects.trainingcenter.repository.CoordinatorRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import java.util.Set;
 
 @Service
 @AllArgsConstructor
@@ -16,8 +17,8 @@ public class CoordinatorService {
         return this.coordinatorRepository.save(coordinator);
     }
 
-    public List<Coordinator> getAllCoordinators() {
-        return this.coordinatorRepository.findAll();
+    public Set<CoordinatorInfo> getAllCoordinators() {
+        return this.coordinatorRepository.findAllCoordinators();
     }
 
     public Coordinator getCoordinatorById(Long id) {

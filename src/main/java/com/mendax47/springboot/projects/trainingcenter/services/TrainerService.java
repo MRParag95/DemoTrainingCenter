@@ -1,11 +1,12 @@
 package com.mendax47.springboot.projects.trainingcenter.services;
 
+import com.mendax47.springboot.projects.trainingcenter.mappers.TrainerInfo;
 import com.mendax47.springboot.projects.trainingcenter.models.Trainer;
 import com.mendax47.springboot.projects.trainingcenter.repository.TrainerRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import java.util.Set;
 
 @Service
 @AllArgsConstructor
@@ -16,8 +17,8 @@ public class TrainerService {
         return this.trainerRepository.save(trainer);
     }
 
-    public List<Trainer> getAllTrainers() {
-        return this.trainerRepository.findAll();
+    public Set<TrainerInfo> getAllTrainers() {
+        return this.trainerRepository.findAllTrainers();
     }
 
     public Trainer getTrainerById(Long id) {

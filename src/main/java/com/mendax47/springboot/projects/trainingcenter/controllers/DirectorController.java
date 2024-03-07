@@ -1,5 +1,6 @@
 package com.mendax47.springboot.projects.trainingcenter.controllers;
 
+import com.mendax47.springboot.projects.trainingcenter.mappers.DirectorInfo;
 import com.mendax47.springboot.projects.trainingcenter.models.Director;
 import com.mendax47.springboot.projects.trainingcenter.services.DirectorService;
 import lombok.AllArgsConstructor;
@@ -8,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Set;
 
 @RestController
 @AllArgsConstructor
@@ -21,7 +23,7 @@ public class DirectorController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Director>> getAllDirectors() {
+    public ResponseEntity<Set<DirectorInfo>> getAllDirectors() {
         return new ResponseEntity<>(this.directorService.getAllDirectors(), HttpStatus.OK);
     }
 

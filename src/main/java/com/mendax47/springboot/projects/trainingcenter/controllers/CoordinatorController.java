@@ -1,11 +1,12 @@
 package com.mendax47.springboot.projects.trainingcenter.controllers;
 
+import com.mendax47.springboot.projects.trainingcenter.mappers.CoordinatorInfo;
 import com.mendax47.springboot.projects.trainingcenter.models.Coordinator;
 import com.mendax47.springboot.projects.trainingcenter.services.CoordinatorService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import java.util.Set;
 
 @RestController
 @AllArgsConstructor
@@ -19,7 +20,7 @@ public class CoordinatorController {
     }
 
     @GetMapping
-    public List<Coordinator> getAllCoordinators() {
+    public Set<CoordinatorInfo> getAllCoordinators() {
         return this.coordinatorService.getAllCoordinators();
     }
 

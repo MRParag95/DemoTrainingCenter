@@ -1,11 +1,13 @@
 package com.mendax47.springboot.projects.trainingcenter.services;
 
+import com.mendax47.springboot.projects.trainingcenter.mappers.CourseInfo;
 import com.mendax47.springboot.projects.trainingcenter.models.Course;
 import com.mendax47.springboot.projects.trainingcenter.repository.CourseRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Set;
 
 @Service
 @AllArgsConstructor
@@ -16,8 +18,12 @@ public class CourseService {
         return this.courseRepository.save(course);
     }
 
-    public List<Course> getAllCourses() {
-        return this.courseRepository.findAll();
+//    public List<Course> getAllCourses() {
+//        return this.courseRepository.findAll();
+//    }
+
+    public Set<CourseInfo> getAllCourses() {
+        return this.courseRepository.findAllCourses();
     }
 
     public Course getCourseById(Long id) {

@@ -1,11 +1,12 @@
 package com.mendax47.springboot.projects.trainingcenter.services;
 
+import com.mendax47.springboot.projects.trainingcenter.mappers.DirectorInfo;
 import com.mendax47.springboot.projects.trainingcenter.models.Director;
 import com.mendax47.springboot.projects.trainingcenter.repository.DirectorRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import java.util.Set;
 
 @Service
 @AllArgsConstructor
@@ -16,8 +17,8 @@ public class DirectorService {
         return this.directorRepository.save(director);
     }
 
-    public List<Director> getAllDirectors() {
-        return this.directorRepository.findAll();
+    public Set<DirectorInfo> getAllDirectors() {
+        return this.directorRepository.findAllDirectors();
     }
 
     public Director getDirectorById(Long id) {
